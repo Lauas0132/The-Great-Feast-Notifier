@@ -32,15 +32,15 @@ def check_for_feast():
             for mayor_perk in api_data['data']['mayor']['perks']:
                 if mayor_perk['name'] == 'Grand Feast':
                     finnegan_mayor_grandfeast = True
-    except:
-        log("[WARNING] Couldn't find mayor")
+    except Exception as e:
+        log(f"[WARNING] Couldn't find {e}")
 
     #Checks if finnegan is minister with Great Feast perk
     try:
         if api_data['mayor']['minister']['perk']['name'] == 'Grand Feast':
             finnegan_minister_grandfeast = True
-    except:
-        log("[WARNING] Couldn't find minister")
+    except Exception as e:
+        log(f"[WARNING] Couldn't find {e}")
 
     #Checks if finnegan is candidate with Great Feast perk
     if 'current' in api_data:
